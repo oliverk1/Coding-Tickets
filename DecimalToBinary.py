@@ -1,6 +1,6 @@
 def DecimalToBinary(num):
         if num >= 1:
-            DecimalToBinary(num//2)
+            DecimalToBinary(num // 2)
         add = num % 2
         binarynum.append(add)
         return binarynum
