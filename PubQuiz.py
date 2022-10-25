@@ -13,12 +13,13 @@ def quiz():
         data = randomLine.split(";")
         question = data[0]
         answer = data[1].lower()
+        displayanswer = data[1]
         lines.remove(randomLine)
         userGuess=input(question + " ").lower()
         time.sleep(0.2)
         if userGuess != answer:
             count = count + 1
-            print("Incorrect. It is",answer)
+            print("Incorrect. It is",displayanswer)
         else:
             count = count + 1
             win = win + 1
