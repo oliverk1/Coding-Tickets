@@ -15,7 +15,7 @@ def Decipher(message):
             Decipher.append(MorseCodeDecipher[i])
         elif i == " ":
             Decipher.append(" ")
-    Decipher = " ".join(Decipher)
+    Decipher = "".join(Decipher)
     return Decipher
 
 def ValidDecipher():
@@ -45,8 +45,7 @@ def ValidMessage():
         message = message.upper()
         try:
             for i in message:
-                if i != " ":
-                    MorseCodeEncryption[i]
+                MorseCodeEncryption[i]
         except KeyError:
             print("Invalid Character Detected.")
         else:
