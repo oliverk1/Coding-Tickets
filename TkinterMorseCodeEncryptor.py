@@ -30,8 +30,7 @@ def ValidMessage(message):
     global MorseCode
     try:
         for i in message:
-            if i != " ":
-                MorseCode[i]
+            MorseCode[i]
     except KeyError:
         return False
     else:
@@ -62,7 +61,7 @@ label = tk.Label(text = "Please enter your message to encrypt:", bg = "#40edd8")
 entry = tk.Entry()
 button = tk.Button(text = "Done.", command = button_clicked, bg = "#40edd8")
 button2 = tk.Button(text = "Reset.", command = reset, bg = "#40edd8")
-messageent = tk.Text(width = 40, height = 3)
+messageent = tk.Text(width = 40, height = 6)
 label.pack()
 entry.pack()
 button.pack()
