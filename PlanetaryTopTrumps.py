@@ -66,11 +66,13 @@ def game(i, x):
             statchoice = int(statchoice)
         except ValueError:
             print("ERROR")
+            time.sleep(0.3)
             continue
         if 1 <= statchoice <= 4:
             break
         else:
             print("ERROR")
+            time.sleep(0.3)
     if Planets[i][statchoice] > OpponentCards[x][statchoice]:
         print("Opponent had:", OpponentCards[x][0], "-->", OpponentCards[x][statchoice])
         time.sleep(0.3)
@@ -92,6 +94,7 @@ def game(i, x):
 def ValidRerun():
     while True:
         Rerun = input("Would you like to play again? Y/N ")
+        time.sleep(0.3)
         if Rerun == "Y" or Rerun == "y":
             return True
             break
@@ -100,6 +103,7 @@ def ValidRerun():
             break
         else:
             print("Please enter Y/N.")
+            time.sleep(0.3)
 
 import random
 import time
