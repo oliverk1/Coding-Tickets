@@ -11,8 +11,8 @@ while True:
         break
     check, frame = video.read()
     grayFrame = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-    smile = smileCascade.detectMultiScale(grayFrame, scaleFactor = 1.3, minNeighbors = 35)
-    face = faceCascade.detectMultiScale(grayFrame, scaleFactor = 1.3, minNeighbors = 15)
+    smile = smileCascade.detectMultiScale(grayFrame, scaleFactor = 1.3, minNeighbors = 33)
+    face = faceCascade.detectMultiScale(grayFrame, scaleFactor = 1.3, minNeighbors = 22)
     if len(face) != 0:
         for (x, y, w, h) in face:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
