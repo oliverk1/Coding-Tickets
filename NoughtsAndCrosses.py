@@ -14,6 +14,8 @@ def win(XO, event):
         or "1" in test and "5" in test and "9" in test\
         or "3" in test and "5" in test and "7" in test:
         return True
+    elif (len(X) + len(O)) == 9:
+        return False
 
 import PySimpleGUI as sg
 X = []
@@ -59,7 +61,14 @@ while True:
             for i in range(1, 10):
                 i = str(i)
                 window[i].update(disabled = True)
-    count = count + 1
+        if w == False:
+            window["text2"].update(visible = False)
+            window["text"].update("Draw!", visible = True)
+            for i in range(1, 10):
+                i = str(i)
+                window[i].update(disabled = True)
+        count = count + 1
+window.close()
 
 
 
