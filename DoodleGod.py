@@ -38,7 +38,7 @@ def MainProgram():
             for i in lines:
                 as_list = i.split(",")
                 elements.append(as_list[0].replace("\n",""))
-        print("There are", 96 - len(elements), "elements left to discover!")
+        print("\033[1;37mThere are", 96 - len(elements), "elements left to discover!")
         print("Current Discovered Elements are:",', '.join(elements), "\n")
         element1 = input("Choose Element 1 to Combine: ")
         element2 = input("Choose Element 2 to Combine: ")
@@ -48,7 +48,7 @@ def MainProgram():
             combinations = [element1 + element2, element2 + element1]
             for row in combinations:
                 if row in recipes and recipes[row] not in elements:
-                    print("You Discovered", recipes[row] + "!")
+                    print("\033[1;32mYou Discovered", recipes[row] + "!")
                     elements.append(recipes[row])
         elements.sort()
         with open("DoodleGod.txt", "w") as output:
