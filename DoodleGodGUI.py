@@ -34,7 +34,7 @@ def layout():
     column1 = [
         [sg.Text("", key="OPT1")],
         [sg.Text("", key="OPT2")],
-        [sg.Text("", key="DISCOVERY")],
+        [sg.Text("", key="DISCOVERY", visible = False), sg.Button("OK", key = "OK", visible = False)],
         [sg.Button("Quit"), sg.Button("Refresh", key="REFRESH")]
     ]
     elements = []
@@ -49,12 +49,12 @@ def layout():
     layout = [
         [sg.Column(column1),
          sg.VSeperator(),
-         sg.Column(column2, key="ELEMENTS"), ]
+         sg.Column(column2, key="ELEMENTS", scrollable = True, vertical_scroll_only = True), ]
     ]
     window = sg.Window("Doodle God", layout)
 
 def updateelements(count, event):
-    global element1, element2
+    global element1, element2, run
     if (count % 2) == 0:
         element1 = event
         element2 = ""
@@ -67,7 +67,8 @@ def updateelements(count, event):
         combinations = [element1 + element2, element2 + element1]
         for row in combinations:
             if row in recipes and recipes[row] not in elements:
-                window["DISCOVERY"].update("You Discovered " + recipes[row])
+                window["DISCOVERY"].update("You Discovered " + recipes[row], visible = True)
+                window["OK"].update(visible = True)
                 elements.append(recipes[row])
                 window.extend_layout(window["ELEMENTS"], [[sg.Button(recipes[row], key=recipes[row])]])
     elements.sort()
@@ -81,10 +82,14 @@ def windowloop():
         event, values = window.read()
         if event == "Quit" or event == sg.WIN_CLOSED:
             break
-        if event == "REFRESH":
+        elif event == "REFRESH":
             count = -1
             window.close()
             layout()
+        elif event == "OK":
+            window["OK"].update(visible=False)
+            window["DISCOVERY"].update(visible=False)
+            count -= 1
         else:
             updateelements(count, event)
         if len(elements) == 96:
@@ -94,6 +99,7 @@ def windowloop():
         count += 1
 
 def Main():
+    sg.theme("Dark")
     recipes()
     layout()
     windowloop()
