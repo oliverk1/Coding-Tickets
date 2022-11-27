@@ -31,12 +31,6 @@ def recipes():
 
 def layout():
     global window, elements
-    column1 = [
-        [sg.Text("", key="OPT1")],
-        [sg.Text("", key="OPT2")],
-        [sg.Text("", key="DISCOVERY", visible = False), sg.Button("OK", key = "OK", visible = False)],
-        [sg.Button("Quit"), sg.Button("Refresh", key="REFRESH")]
-    ]
     elements = []
     with open("DoodleGod.txt", "r") as Input:
         lines = Input.readlines()
@@ -46,6 +40,13 @@ def layout():
     column2 = []
     for row in elements:
         column2.append([sg.Button(row, key=row)])
+    column1 = [
+        [sg.Text("Elements Left: " + str((96 - len(elements))), key = "COUNTER")],
+        [sg.Text("", key="OPT1")],
+        [sg.Text("", key="OPT2")],
+        [sg.Text("", key="DISCOVERY", visible = False), sg.Button("OK", key = "OK", visible = False)],
+        [sg.Button("Quit"), sg.Button("Refresh", key="REFRESH")]
+    ]
     layout = [
         [sg.Column(column1),
          sg.VSeperator(),
@@ -80,6 +81,7 @@ def windowloop():
     count= 0
     while True:
         event, values = window.read()
+        window["COUNTER"].update("Elements Left: " + str((96 - len(elements))))
         if event == "Quit" or event == sg.WIN_CLOSED:
             break
         elif event == "REFRESH":
