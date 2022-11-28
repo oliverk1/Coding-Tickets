@@ -22,7 +22,7 @@ def recipes():
                "DoughFire": "Bread", "SandEgg": "Turtle", "SwampEgg": "Lizard", "WoodWheel": "Cart",
                "CartSteam-Engine": "Locomotive", "BirdFire": "Phoenix", "LizardEarth": "Beast",
                "BeastVampire": "Werewolf", "WormEarth": "Beetle", "BeetleSand": "Scorpion", "WoodWater": "Boat",
-               "CartBeast": "Chariot", "HunterBeast": "Meat", "BeastHunter": "Meat", "HumanClay": "Ceramics",
+               "CartBeast": "Chariot", "HunterBeast": "Meat", "BeastHunter": "Wool", "HumanClay": "Ceramics",
                "HumanStone": "Hut", "StonePlankton": "Shells", "ShellsStone": "Limestone", "LimestoneClay": "Cement",
                "ToolsWool": "Fabric", "HumanBeast": "Domestic Animal", "Domestic AnimalGrass": "Milk",
                "GrassDomestic Animal": "Fertilizer", "LifeTree": "Treant", "WeedsEarth": "Mushroom",
@@ -41,7 +41,7 @@ def layout():
     for row in elements:
         column2.append([sg.Button(row, key=row)])
     column1 = [
-        [sg.Text("Elements Left: " + str((96 - len(elements))), key = "COUNTER")],
+        [sg.Text("Elements Left: " + str((97 - len(elements))), key = "COUNTER")],
         [sg.Text("", key="OPT1")],
         [sg.Text("", key="OPT2")],
         [sg.Text("", key="DISCOVERY", visible = False), sg.Button("OK", key = "OK", visible = False)],
@@ -94,7 +94,7 @@ def windowloop():
             count -= 1
         else:
             updateelements(count, event)
-        if len(elements) == 96:
+        if len(elements) == 97:
             print("You Discovered Every Element!"
                   "\nWell Done!")
             break

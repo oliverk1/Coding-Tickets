@@ -21,7 +21,7 @@ def MainProgram():
                "DoughFire": "Bread", "SandEgg": "Turtle", "SwampEgg": "Lizard", "WoodWheel": "Cart",
                "CartSteam-Engine": "Locomotive", "BirdFire": "Phoenix", "LizardEarth": "Beast",
                "BeastVampire": "Werewolf", "WormEarth": "Beetle", "BeetleSand": "Scorpion", "WoodWater": "Boat",
-               "CartBeast": "Chariot", "HunterBeast": "Meat", "BeastHunter": "Meat", "HumanClay": "Ceramics",
+               "CartBeast": "Chariot", "HunterBeast": "Meat", "BeastHunter": "Wool", "HumanClay": "Ceramics",
                "HumanStone": "Hut", "StonePlankton": "Shells", "ShellsStone": "Limestone", "LimestoneClay": "Cement",
                "ToolsWool": "Fabric", "HumanBeast": "Domestic Animal", "Domestic AnimalGrass": "Milk",
                "GrassDomestic Animal": "Fertilizer", "LifeTree": "Treant", "WeedsEarth": "Mushroom",
@@ -38,7 +38,7 @@ def MainProgram():
             for i in lines:
                 as_list = i.split(",")
                 elements.append(as_list[0].replace("\n",""))
-        print("\033[1;37mThere are", 96 - len(elements), "elements left to discover!")
+        print("\033[1;37mThere are", 97 - len(elements), "elements left to discover.")
         print("Current Discovered Elements are:",', '.join(elements), "\n")
         element1 = input("Choose Element 1 to Combine: ")
         element2 = input("Choose Element 2 to Combine: ")
@@ -54,7 +54,7 @@ def MainProgram():
         with open("DoodleGod.txt", "w") as output:
             for row in elements:
                 output.write(row + "\n")
-        if len(elements) == 96:
+        if len(elements) == 97:
             print("You Discovered Every Element!"
                   "\nWell Done!")
             break
