@@ -50,7 +50,7 @@ def layout():
     layout = [
         [sg.Column(column1),
          sg.VSeperator(),
-         sg.Column(column2, key="ELEMENTS", scrollable = True, vertical_scroll_only = True), ]
+         sg.Column(column2, key="ELEMENTS", scrollable = True, vertical_scroll_only = True, size_subsample_height = 5), ]
     ]
     window = sg.Window("Doodle God", layout)
 
@@ -95,8 +95,7 @@ def windowloop():
         else:
             updateelements(count, event)
         if len(elements) == 97:
-            print("You Discovered Every Element!"
-                  "\nWell Done!")
+            window["DISCOVERY"].update("You Discovered Every Element!", visible = True)
             break
         count += 1
 
