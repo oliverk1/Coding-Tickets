@@ -2,6 +2,8 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 
+comments = ["comment1","comment2"]
+
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
 
@@ -40,6 +42,8 @@ post.click()
 sleep(2)
 
 for i in range(15):
+    comment = random.choice(comments)
+    
     next_post = browser.find_element(By.CLASS_NAME,"_aaqg._aaqh")
     next_post.click()
 
@@ -49,7 +53,7 @@ for i in range(15):
     like_post.click()
     
     comment_input = browser.find_element(By.CLASS_NAME,"x1i0vuye.xvbhtw8.x76ihet.xwmqs3e.x112ta8.xxxdfa6.x5n08af.x78zum5.x1iyjqo2.x1qlqyl8.x1d6elog.xlk1fp6.x1a2a7pz.xexx8yu.x4uap5.x18d9i69.xkhd6sd.xtt52l0.xnalus7.xs3hnx8.x1bq4at4.xaqnwrm")
-    comment_input.send_keys("<comment>")
+    comment_input.send_keys(comment)
     send_comment = browser.find_element(By.CLASS_NAME,"_am-5")
     send_comment.click()
     
