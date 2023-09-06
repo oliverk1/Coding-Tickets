@@ -1,0 +1,1 @@
+This is a collection of all general programs which have been designed and programmed with the purpose of challenging and showcasing my coding. Some programs incorporate a PySimpleGUI and Tkinter GUI and others incorporate many different functions and APIs.
